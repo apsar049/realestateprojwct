@@ -31,7 +31,7 @@ const BasicInfo = () => {
     } else {
       //   console.log('user verify')
       setLoginData(recivedData)
-      navigate('/basicinfo')
+      // navigate('/basicinfo')
     }
   }
 

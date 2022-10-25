@@ -45,7 +45,7 @@ function Signin ({ setUser, setToken }) {
 
     if (res.status == 201) {
       localStorage.setItem('usersdatatoken', res.result.token)
-      history('/basicinfo')
+      history('/basicinfo/propertydetails/generalinfo/locationinfo/listings')
       // console.log(res)
     } else {
       alert(res.message)

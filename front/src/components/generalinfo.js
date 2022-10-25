@@ -35,10 +35,6 @@ const GeneralInfo = () => {
 
     if (recivedData.status == 401 || !recivedData) {
       navigate('/')
-    } else {
-      //   console.log('user verify')
-      setLoginData(recivedData)
-      navigate('/basicinfo/propertydetails/generalinfo')
     }
   }
 
