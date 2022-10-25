@@ -1,8 +1,12 @@
 import React from 'react'
 import { useState } from 'react'
 import '../css/signup.css'
+import eye from '../images/eye.png'
+
 import { Link, useNavigate } from 'react-router-dom'
 const SignUp = () => {
+  const [showPassword, setShowPassword] = useState(false)
+
   const [inpval, setInpval] = useState({
     email: '',
     password: '',
@@ -74,8 +78,8 @@ const SignUp = () => {
   return (
     <div className='sign-up-parent'>
       <div className='sign-up-form-container'>
-        <h1 style={{ color: '#4c57b6' }}>Logo</h1>
-        <p>Create New Account</p>
+        <h1 style={{ color: '#4c57b6', marginLeft: '10px' }}>Logo</h1>
+        <p style={{ marginLeft: '10px' }}>Create New Account</p>
         <form>
           <input
             type='email'
@@ -90,7 +94,7 @@ const SignUp = () => {
 
           <input
             className='password'
-            type='password'
+            type={showPassword ? 'text' : 'password'}
             placeholder='Password'
             id='password'
             name='password'
@@ -98,16 +102,33 @@ const SignUp = () => {
             onChange={setVal}
             required
           />
+          <span
+            className='eye'
+            onClick={() => {
+              setShowPassword(!showPassword)
+            }}
+          >
+            <img src={eye} alt='no data' />
+          </span>
 
           <input
             className='confirm-password'
-            type='password'
+            type={showPassword ? 'text' : 'password'}
             placeholder='Confirm Password'
             name='cpassword'
             value={inpval.cpassword}
             required
             onChange={setVal}
           />
+          <span
+            className='eye'
+            onClick={() => {
+              setShowPassword(!showPassword)
+            }}
+            style={{ marginTop: '65px' }}
+          >
+            <img src={eye} alt='no data' />
+          </span>
           <button type='submit' className='submit-button' onClick={addUserdata}>
             Sign Up
           </button>

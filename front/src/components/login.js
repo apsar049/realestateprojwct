@@ -57,8 +57,8 @@ function Signin ({ setUser, setToken }) {
   return (
     <div className='sign-in-parent'>
       <div className='sign-in-form-container'>
-        <h1 style={{ color: '#4c57b6' }}>Logo</h1>
-        <p className='description'>
+        <h1 style={{ color: '#4c57b6', marginLeft: '10px' }}>Logo</h1>
+        <p className='description' style={{ marginLeft: '20px' }}>
           Enter your credentials to access your Account
         </p>
         <form onSubmit={loginuser}>
@@ -100,10 +100,9 @@ function Signin ({ setUser, setToken }) {
         </form>
       </div>
       <div>
-        <p className='para'>
+        <p className='para' style={{ color: '#4c57b6', marginLeft: '50px' }}>
           Don't have an account?
           <Link to='/Signup' style={{ fontWeight: 'bold' }}>
-            {' '}
             SignUp
           </Link>
         </p>
