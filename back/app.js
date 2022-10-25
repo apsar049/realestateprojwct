@@ -2,9 +2,13 @@ const mongoose = require('mongoose')
 const express = require('express')
 // const router = require("./routers/routes")
 const cors = require('cors')
-mongoose.connect('mongodb://localhost:27017/realestate').then(() => {
-  console.log('connection success')
-})
+mongoose
+  .connect(
+    'mongodb+srv://root:rootroot@cluster0.xd4wauo.mongodb.net/?retryWrites=true&w=majority'
+  )
+  .then(() => {
+    console.log('connection success')
+  })
 
 const app = express()
 // app.use("/",router)

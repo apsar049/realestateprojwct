@@ -1,5 +1,5 @@
 import axios from 'axios'
-import React, { useState, useContext } from 'react'
+import React, { useState, useContext, useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import { LoginContext } from './ContextProvider/Context'
 
@@ -10,6 +10,35 @@ import Header from './Header'
 const LocationInfo = () => {
   const { logindata, setLoginData } = useContext(LoginContext)
 
+  const [info, setInfo] = useState(false)
+  const DashboardValid = async () => {
+    let token = localStorage.getItem('usersdatatoken')
+
+    const res = await fetch('/validuser', {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+        Authorization: token
+      }
+    })
+
+    const recivedData = await res.json()
+
+    if (recivedData.status == 401 || !recivedData) {
+      navigate('/')
+    } else {
+      //   console.log('user verify')
+      setLoginData(recivedData)
+      navigate('/basicinfo/propertydetails/generalinfo/locationinfo')
+    }
+  }
+
+  useEffect(() => {
+    setTimeout(() => {
+      DashboardValid()
+      setInfo(true)
+    }, 2000)
+  }, [])
   // const navigate = useNavigate()
   // const handleUpload = async (e) => {
   //     e.preventDefault();
